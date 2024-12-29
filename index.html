@@ -11,6 +11,7 @@
             background-color: #f8f9fa;
         }
         .container {
+            margin: auto;
             margin-top: 20px;
             padding: 20px;
             background-color: #ffffff;
@@ -39,15 +40,15 @@
         <form id="scoreForm">
             <div class="table-responsive">
                 <table class="table table-bordered">
-                    <thead class="table-success">
+                    <thead class="table-success text-center">
                         <tr>
                             <th scope="col">Tín chỉ</th>
-                            <th scope="col">Thường kỳ 1</th>
-                            <th scope="col">Thường kỳ 2</th>
-                            <th scope="col">Thường kỳ 3</th>
-                            <th scope="col">Thực hành 1</th>
-                            <th scope="col">Thực hành 2</th>
-                            <th scope="col">Thực hành 3</th>
+                            <th scope="col">TK 1</th>
+                            <th scope="col">TK 2</th>
+                            <th scope="col">TK 3</th>
+                            <th scope="col">TH 1</th>
+                            <th scope="col">TH 2</th>
+                            <th scope="col">TH 3</th>
                             <th scope="col">Giữa kỳ</th>
                             <th scope="col">Cuối kỳ</th>
                         </tr>
@@ -69,7 +70,7 @@
             </div>
             <div class="d-flex justify-content-between">
                 <button type="button" class="btn btn-primary" id="calculate">Tính điểm</button>
-                <button type="reset" class="btn btn-secondary" id="reset">Làm lại</button>
+                <button type="reset" class="btn btn-danger" id="reset">Làm lại</button>
             </div>
         </form>
         <div class="result" id="result"></div>
