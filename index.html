@@ -1,124 +1,147 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tính điểm học phần</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f8f9fa;
-        }
-        
-        h1 {
-            text-align: center;
-            color: #0056b3;
-        }
-        .result {
-            margin-top: 20px;
-            padding: 15px;
-            font-size: 16px;
-            background-color: #e9f7ef;
-            border: 1px solid #d4edda;
-            color: #155724;
-            border-radius: 4px;
-            font-weight: bold;
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Tính điểm học phần</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"/>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f8f9fa;
+    }
+
+    h1 {
+      text-align: center;
+      color: #0056b3;
+      margin: 20px 0;
+    }
+
+    .result {
+      margin-top: 20px;
+      padding: 15px;
+      font-size: 16px;
+      background-color: #e9f7ef;
+      border: 1px solid #d4edda;
+      color: #155724;
+      border-radius: 4px;
+      font-weight: bold;
+    }
+  </style>
 </head>
 <body>
-    <div class="container-fluid">
-        <h1>Tính điểm học phần</h1>
-        <form id="scoreForm">
-            <div class="table-responsive">
-                <table class="table table-bordered">
-                    <thead class="table-success text-center">
-                        <tr>
-                            <th scope="col">Tín chỉ</th>
-                            <th scope="col">TK 1</th>
-                            <th scope="col">TK 2</th>
-                            <th scope="col">TK 3</th>
-                            <th scope="col">TH 1</th>
-                            <th scope="col">TH 2</th>
-                            <th scope="col">TH 3</th>
-                            <th scope="col">Giữa kỳ</th>
-                            <th scope="col">Cuối kỳ</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td><input type="number" class="form-control" id="credits" min="1" max="4" step="1" required></td>
-                            <td><input type="number" class="form-control" id="tk1" min="0" max="10" step="0.1"></td>
-                            <td><input type="number" class="form-control" id="tk2" min="0" max="10" step="0.1"></td>
-                            <td><input type="number" class="form-control" id="tk3" min="0" max="10" step="0.1"></td>
-                            <td><input type="number" class="form-control" id="th1" min="0" max="10" step="0.1"></td>
-                            <td><input type="number" class="form-control" id="th2" min="0" max="10" step="0.1"></td>
-                            <td><input type="number" class="form-control" id="th3" min="0" max="10" step="0.1"></td>
-                            <td><input type="number" class="form-control" id="midterm" min="0" max="10" step="0.1" required></td>
-                            <td><input type="number" class="form-control" id="final" min="0" max="10" step="0.1" required></td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-            <div class="d-flex justify-content-between">
-                <button type="button" class="btn btn-primary" id="calculate">Tính điểm</button>
-                <button type="reset" class="btn btn-danger" id="reset">Làm lại</button>
-            </div>
-        </form>
-        <div class="result" id="result"></div>
-    </div>
+  <div class="container">
+    <h1>Tính điểm học phần</h1>
+    <form id="scoreForm">
+      <div class="row">
+        <div class="form-group col-md-4">
+          <label for="credits">Tín chỉ *</label>
+          <input type="number" class="form-control" id="credits" min="1" max="4" required />
+        </div>
+        <div class="form-group col-md-4">
+            <label for="midterm">Giữa kỳ *</label>
+            <input type="number" class="form-control" id="midterm" min="0" max="10" step="0.1" required />
+          </div>
+  
+          <div class="form-group col-md-4">
+            <label for="final">Cuối kỳ *</label>
+            <input type="number" class="form-control" id="final" min="0" max="10" step="0.1" required />
+          </div>
 
-    <script>
-        document.getElementById('calculate').addEventListener('click', function () {
-            const credits = parseFloat(document.getElementById('credits').value) || 0;
-            const tk1 = parseFloat(document.getElementById('tk1').value) || 0;
-            const tk2 = parseFloat(document.getElementById('tk2').value) || 0;
-            const tk3 = parseFloat(document.getElementById('tk3').value) || 0;
-            const th1 = parseFloat(document.getElementById('th1').value) || 0;
-            const th2 = parseFloat(document.getElementById('th2').value) || 0;
-            const th3 = parseFloat(document.getElementById('th3').value) || 0;
-            const midterm = parseFloat(document.getElementById('midterm').value) || 0;
-            const final = parseFloat(document.getElementById('final').value) || 0;
+        <div class="form-group col-md-4">
+          <label for="tk1">TK 1</label>
+          <input type="number" class="form-control" id="tk1" min="0" max="10" step="0.1" />
+        </div>
 
-            if (credits <= 0) {
-                document.getElementById('result').textContent = 'Vui lòng nhập số tín chỉ hợp lệ!';
-                return;
-            }
+        <div class="form-group col-md-4">
+          <label for="tk2">TK 2</label>
+          <input type="number" class="form-control" id="tk2" min="0" max="10" step="0.1" />
+        </div>
 
-            let dtbkt = 0, dtkhp = 0, letterGrade = '';
-            const tkCount = (tk1 > 0) + (tk2 > 0) + (tk3 > 0);
-            dtbkt = tkCount > 0 ? (tk1 + tk2 + tk3) / tkCount : 0;
+        <div class="form-group col-md-4">
+          <label for="tk3">TK 3</label>
+          <input type="number" class="form-control" id="tk3" min="0" max="10" step="0.1" />
+        </div>
 
-            if (th1 === 0 && th2 === 0 && th3 === 0) {
-                dtkhp = final < 3.0 ? final : 0.5 * final + 0.3 * midterm + 0.2 * dtbkt;
-            } else if (tk1 === 0 && tk2 === 0 && tk3 === 0) {
-                const thCount = (th1 > 0) + (th2 > 0) + (th3 > 0);
-                dtkhp = thCount > 0 ? (th1 + th2 + th3) / thCount : 0;
-            } else {
-                const dlt = final < 3.0 ? final : 0.5 * final + 0.3 * midterm + 0.2 * dtbkt;
-                const dth = (th1 + th2 + th3) / ((th1 > 0) + (th2 > 0) + (th3 > 0));
-                dtkhp = 0.6 * dlt + 0.4 * dth;
-            }
+        <div class="form-group col-md-4">
+          <label for="th1">TH 1</label>
+          <input type="number" class="form-control" id="th1" min="0" max="10" step="0.1" />
+        </div>
 
-            dtkhp = Math.round(dtkhp * 10) / 10;
+        <div class="form-group col-md-4">
+          <label for="th2">TH 2</label>
+          <input type="number" class="form-control" id="th2" min="0" max="10" step="0.1" />
+        </div>
 
-            if (dtkhp >= 9.0) letterGrade = 'A+';
-            else if (dtkhp >= 8.5) letterGrade = 'A';
-            else if (dtkhp >= 8.0) letterGrade = 'B+';
-            else if (dtkhp >= 7.0) letterGrade = 'B';
-            else if (dtkhp >= 6.0) letterGrade = 'C+';
-            else if (dtkhp >= 5.5) letterGrade = 'C';
-            else if (dtkhp >= 5.0) letterGrade = 'D+';
-            else if (dtkhp >= 4.0) letterGrade = 'D';
-            else letterGrade = 'F';
+        <div class="form-group col-md-4">
+          <label for="th3">TH 3</label>
+          <input type="number" class="form-control" id="th3" min="0" max="10" step="0.1" />
+        </div>
 
-            document.getElementById('result').textContent = `Điểm tổng kết: ${dtkhp} | Điểm chữ: ${letterGrade}`;
-        });
+        
+      </div>
 
-        document.getElementById('reset').addEventListener('click', function () {
-            document.getElementById('result').textContent = '';
-        });
-    </script>
+      <div class="d-flex justify-content-between my-3">
+        <button type="button" class="btn btn-primary" id="calculate">Tính điểm</button>
+        <button type="reset" class="btn btn-danger" id="reset">Làm lại</button>
+      </div>
+    </form>
+
+    <div class="result" id="result"></div>
+  </div>
+
+  <script>
+    document.getElementById("calculate").addEventListener("click", function () {
+      const credits = parseFloat(document.getElementById("credits").value) || 0;
+      const tk1 = parseFloat(document.getElementById("tk1").value) || 0;
+      const tk2 = parseFloat(document.getElementById("tk2").value) || 0;
+      const tk3 = parseFloat(document.getElementById("tk3").value) || 0;
+      const th1 = parseFloat(document.getElementById("th1").value) || 0;
+      const th2 = parseFloat(document.getElementById("th2").value) || 0;
+      const th3 = parseFloat(document.getElementById("th3").value) || 0;
+      const midterm = parseFloat(document.getElementById("midterm").value) || 0;
+      const final = parseFloat(document.getElementById("final").value) || 0;
+
+      if (credits <= 0) {
+        document.getElementById("result").textContent = "Vui lòng nhập số tín chỉ hợp lệ!";
+        return;
+      }
+
+      let dtbkt = 0,
+        dtkhp = 0,
+        letterGrade = "";
+      const tkCount = (tk1 > 0) + (tk2 > 0) + (tk3 > 0);
+      dtbkt = tkCount > 0 ? (tk1 + tk2 + tk3) / tkCount : 0;
+
+      if (th1 === 0 && th2 === 0 && th3 === 0) {
+        dtkhp = final < 3.0 ? final : 0.5 * final + 0.3 * midterm + 0.2 * dtbkt;
+      } else if (tk1 === 0 && tk2 === 0 && tk3 === 0) {
+        const thCount = (th1 > 0) + (th2 > 0) + (th3 > 0);
+        dtkhp = thCount > 0 ? (th1 + th2 + th3) / thCount : 0;
+      } else {
+        const dlt = final < 3.0 ? final : 0.5 * final + 0.3 * midterm + 0.2 * dtbkt;
+        const dth = (th1 + th2 + th3) / ((th1 > 0) + (th2 > 0) + (th3 > 0));
+        dtkhp = 0.6 * dlt + 0.4 * dth;
+      }
+
+      dtkhp = Math.round(dtkhp * 10) / 10;
+
+      if (dtkhp >= 9.0) letterGrade = "A+";
+      else if (dtkhp >= 8.5) letterGrade = "A";
+      else if (dtkhp >= 8.0) letterGrade = "B+";
+      else if (dtkhp >= 7.0) letterGrade = "B";
+      else if (dtkhp >= 6.0) letterGrade = "C+";
+      else if (dtkhp >= 5.5) letterGrade = "C";
+      else if (dtkhp >= 5.0) letterGrade = "D+";
+      else if (dtkhp >= 4.0) letterGrade = "D";
+      else letterGrade = "F";
+
+      document.getElementById("result").textContent = `Điểm tổng kết: ${dtkhp} | Điểm chữ: ${letterGrade}`;
+    });
+
+    document.getElementById("reset").addEventListener("click", function () {
+      document.getElementById("result").textContent = "";
+    });
+  </script>
 </body>
 </html>
