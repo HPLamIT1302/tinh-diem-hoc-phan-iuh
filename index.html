@@ -143,5 +143,55 @@
       document.getElementById("result").textContent = "";
     });
   </script>
+
+
+  <h1>Logic Tính Toán Điểm Tổng Kết Học Phần (ĐTKHP)</h1>
+
+    <h2>Học Phần Lý Thuyết</h2>
+    <p><strong>Công thức tính điểm tổng kết (ĐTKHP) học phần lý thuyết:</strong></p>
+    <p><strong>ĐTKHP = 0.5 × ĐKTHP + 0.3 × ĐGK + 0.2 × ĐTBKTTK</strong></p>
+    <ul>
+        <li><strong>Điểm trung bình kiểm tra thường kỳ (ĐTBKTTK):</strong> Là trung bình cộng của các điểm kiểm tra thường kỳ (Thường kỳ 1, Thường kỳ 2, Thường kỳ 3).</li>
+        <li><strong>Điểm giữa kỳ (ĐGK):</strong> Điểm nhập vào ô "Giữa kỳ".</li>
+        <li><strong>Điểm cuối kỳ (ĐKTHP):</strong> Điểm nhập vào ô "Cuối kỳ".</li>
+        <li>Nếu ĐKTHP &lt; 3.0, thì <strong>ĐTKHP = ĐKTHP</strong>, điểm tổng kết là <strong>F</strong>.</li>
+    </ul>
+
+    <h2>Học Phần Thực Hành</h2>
+    <p><strong>Công thức tính điểm tổng kết học phần thực hành:</strong></p>
+    <p><strong>ĐTKHP = (Thực hành 1 + Thực hành 2 + Thực hành 3) / 3</strong></p>
+
+    <h2>Học Phần Tích Hợp (Lý thuyết + Thực hành)</h2>
+    <p><strong>Công thức tính điểm tổng kết học phần tích hợp (Lý thuyết + Thực hành):</strong></p>
+    <p><strong>ĐTKHP = (ĐLT × jlt + ĐTH × jth) / N</strong></p>
+    <ul>
+        <li><strong>ĐLT:</strong> Điểm tổng kết phần lý thuyết.</li>
+        <li><strong>ĐTH:</strong> Điểm tổng kết phần thực hành.</li>
+        <li><strong>jlt:</strong> Số tín chỉ lý thuyết.</li>
+        <li><strong>jth:</strong> Số tín chỉ thực hành.</li>
+        <li><strong>N:</strong> Tổng tín chỉ (N = jlt + jth).</li>
+    </ul>
+
+    <h2>Chuyển Đổi Điểm Tổng Kết Sang Điểm Chữ</h2>
+    <p><strong>Quy Tắc Làm Tròn:</strong> Làm tròn ĐTKHP đến 1 chữ số thập phân.</p>
+    <table border="1" cellpadding="5" cellspacing="0">
+        <thead>
+            <tr>
+                <th>Điểm Chữ</th>
+                <th>Khoảng Điểm</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr><td>A+</td><td>9.0 – 10.0</td></tr>
+            <tr><td>A</td><td>8.5 – 8.9</td></tr>
+            <tr><td>B+</td><td>8.0 – 8.4</td></tr>
+            <tr><td>B</td><td>7.0 – 7.9</td></tr>
+            <tr><td>C+</td><td>6.0 – 6.9</td></tr>
+            <tr><td>C</td><td>5.5 – 5.9</td></tr>
+            <tr><td>D+</td><td>5.0 – 5.4</td></tr>
+            <tr><td>D</td><td>4.0 – 4.9</td></tr>
+            <tr><td>F</td><td>0.0 – 3.9</td></tr>
+        </tbody>
+    </table>
 </body>
 </html>
